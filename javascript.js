@@ -34,6 +34,13 @@ var correctKeysPressed = {
 
     print: function (x) {
         document.getElementById("targetWord").textContent = this.library;
+    },
+
+    finished: function() {
+        if (correctKeysPressed.library.includes("_")=== false) {
+            this.print();
+            alert("You WIN");
+        };
     }
 }
 
@@ -63,10 +70,20 @@ document.onkeyup = function (event) {
 
     } else {
 
-        correctKeysPressed.library[guessIndex] = userGuess;
+        // locats all matching letters in target word and replaces _ with the letter
+        for (i=0; i < targetWord.length; i++) {
+            if (targetWord[i] === userGuess) {
+                correctKeysPressed.library[i] = userGuess;
+            }
+        }
 
+        // reprints screen
         correctKeysPressed.print()
+
+        //checks to see if the word is targetword as been completed
+        correctKeysPressed.finished();
 
     }
 
+    
 };
