@@ -53,6 +53,7 @@ var wrongKeysPressed = {
         } else {
         // increase lose count, reset strikes 
             wordLibrary.lose += 1;
+
             document.getElementById("lose").innerHTML = wordLibrary.lose
             
             board.reset()
@@ -78,7 +79,7 @@ var correctKeysPressed = {
 
             wordLibrary.win += 1
 
-            document.getElementById("win").textContent = wordLibrary.win
+            document.getElementById("win").innerHTML = wordLibrary.win
 
             board.reset()
         };
@@ -100,6 +101,7 @@ var board = {
         }
 
         correctKeysPressed.print()
+        wrongKeysPressed.print();
     },
 
     //resets the board but keeps wins and loses
