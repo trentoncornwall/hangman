@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Exo&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Exo', sans-serif;
+}
+
+.displayedText {
+    letter-spacing: 2px;
+}
+
