@@ -63,7 +63,7 @@ var wrongKeysPressed = {
 };
 
 
-// this will story the target word 
+// OBJECT controlls all action when correct key is pressed
 var correctKeysPressed = {
     library: [],
 
@@ -88,7 +88,7 @@ var correctKeysPressed = {
 
 
 
-// controls the board
+// OBJECT controls board - creation and resetting
 var board = {
 
     // needs to be changed so it doesn't ring the commas
@@ -124,13 +124,9 @@ var board = {
     }
 }
 
+
+//Create board
 board.create()
-
-
-
-
-
-
 
 //USER FUNCTION
 // WHEN A KEY IS PRESSED
