@@ -10,6 +10,10 @@ var wordLibrary = {
         "kyoto",
         "yingyang",
         "kimono",
+        "samurai",
+        "katana",
+        "ninja",
+        "karate"
     ],
 
     createTargetWord: function() {
@@ -74,7 +78,7 @@ var correctKeysPressed = {
 
             wordLibrary.win += 1
 
-            document.getElementById("win").innerHTML = wordLibrary.win
+            document.getElementById("win").textContent = wordLibrary.win
 
             board.reset()
         };
