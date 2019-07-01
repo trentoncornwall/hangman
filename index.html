@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- META Tags-->
     <meta charset="UTF-8">
@@ -11,18 +12,28 @@
 
     <title>Hang Man</title>
 </head>
+
 <body>
-    <div id="targetWord"></div>
-
-    <div id="letterGuesses"></div>
-
-    <div>
-        <p>Wins: <span id="win"></span></p>
+    
+    <div class="board">
+        <!--Hangman word cards-->
+        <div id="targetWord"></div>
+        
+        <div id="letterGuesses"></div>
+        
+        
+        <!-- SCORE card-->
+        <div>
+            <p>Wins: <span id=" "></span></p>
+        </div>
+        
+        <div>
+            <p>Loses: <span id="lose"></span></p>
+        </div>
+        
+        <!--Hangman Javascript-->
+        <script src="assets/javascript/game.js"></script>
     </div>
-    <div>
-        <p>Loses: <span id="lose"></span></p>
-    </div>
-    <!--Hangman Javascript-->
-    <script src="assets/javascript/game.js"></script>
 </body>
+
 </html>

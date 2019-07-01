@@ -6,15 +6,10 @@ var wordLibrary = {
     targetWord: "",
 
     library: [
-        "ufo",
-        "saucer",
-        "abuduction",
-        "hoax",
-        "spaceship",
-        "encounter",
-        "alien",
-        "unidentified",
-        "extraterrestrial"
+        "japan",
+        "kyoto",
+        "yingyang",
+        "kimono",
     ],
 
     createTargetWord: function() {
@@ -41,7 +36,7 @@ var wrongKeysPressed = {
 
             // needs to be a for loup the sycles through letters and prints them
     print: function() {
-        document.getElementById("letterGuesses").innerHTML = this.library;
+        document.getElementById("letterGuesses").innerHTML = this.library.join('');
     },
 
     //everytime a guess is wrong needs to run functions to check if they lose
@@ -57,7 +52,6 @@ var wrongKeysPressed = {
             document.getElementById("lose").innerHTML = wordLibrary.lose
             
             board.reset()
-            // this.wrongStrike = 6;
         };
 
     }
@@ -71,7 +65,7 @@ var correctKeysPressed = {
 
     //function 'prints' the correct keys to the screen
     print: function () {
-        document.getElementById("targetWord").innerHTML = this.library;
+        document.getElementById("targetWord").innerHTML = this.library.join('');
     },
 
     winCheck: function() {
@@ -98,6 +92,7 @@ var board = {
 
         for (i = 0; i < wordLibrary.targetWord.length; i++) {
             correctKeysPressed.library.push("_")
+
         }
 
         correctKeysPressed.print()
@@ -113,7 +108,7 @@ var board = {
 
         //resets wrong keys pressed
         wrongKeysPressed.library = [];
-        
+
         //resets strikes
         wrongKeysPressed.wrongStrike = 6;
 
@@ -124,6 +119,8 @@ var board = {
 }
 
 board.create()
+
+
 
 
 
