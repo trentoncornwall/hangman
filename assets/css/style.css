@@ -7,11 +7,27 @@
 
 body {
     font-family: 'Exo', sans-serif;
+
     background-image: url("../images/background.jpg");
     background-size: cover;
 }
 
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    align-items: top;
+}
+
+header {
+    grid-column: 2 / span 1;
+}
+
 .displayedText {
+    grid-column: 2 / span 1;
     letter-spacing: 2px;
 }
 
+.score {
+    grid-column: 2 / span 1;
+}
