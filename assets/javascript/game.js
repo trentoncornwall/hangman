@@ -8,12 +8,18 @@ var wordLibrary = {
     library: [
         "japan",
         "kyoto",
-        "yingyang",
+        "yinyang",
         "kimono",
         "samurai",
         "katana",
         "ninja",
-        "karate"
+        "karate",
+        "sushi",
+        "sake",
+        "ramen",
+        "hiragana",
+        "katakana",
+        "kanji"
     ],
 
     createTargetWord: function() {
@@ -47,7 +53,7 @@ var wrongKeysPressed = {
     loseCheck: function() {
 
         // If they still have strikes left remove a strike
-        if (this.wrongStrike !== 0) {
+        if (this.wrongStrike !== 1) {
             this.wrongStrike -= 1 
 
         } else {
