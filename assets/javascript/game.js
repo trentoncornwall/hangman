@@ -112,6 +112,9 @@ var board = {
 
     //resets the board but keeps wins and loses
     reset: function() {
+        //prints lastword
+        document.getElementById("lastWord").innerHTML = ("lastword :" + wordLibrary.targetWord)
+        
         //pick a new targetword
         wordLibrary.createTargetWord();
 

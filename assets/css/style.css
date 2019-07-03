@@ -23,6 +23,10 @@ header {
     grid-column: 2 / span 1;
 }
 
+.score {
+    grid-column: 1 / span 1;
+}
+
 .displayedText {
     grid-column: 2 / span 1;
     letter-spacing: 2px;
