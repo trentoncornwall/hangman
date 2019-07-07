@@ -10,6 +10,10 @@ body {
     font-family: 'Exo', sans-serif;
     font-size: 22px;
     background-image: url("../images/background.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgb(112, 197, 169);
     background-size: cover;
 }
 

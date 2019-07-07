@@ -123,7 +123,6 @@ var board = {
 
         //checks if new word is the same as last, if so recursive call
         if (lastWord === wordLibrary.targetWord) {
-    
             this.reset();
         }
     
