@@ -114,11 +114,19 @@ var board = {
     //resets the board but keeps wins and loses
     reset: function () {
         //prints lastword
-        document.getElementById("lastWord").innerHTML = ("lastword: " + wordLibrary.targetWord)
+        var lastWord = wordLibrary.targetWord
+        document.getElementById("lastWord").innerHTML = ("lastword: " + lastWord)
+ 
 
         //pick a new targetword
         wordLibrary.createTargetWord();
 
+        //checks if new word is the same as last, if so recursive call
+        if (lastWord === wordLibrary.targetWord) {
+    
+            this.reset();
+        }
+    
         //resets correct keys pressed
         correctKeysPressed.library = [];
 
