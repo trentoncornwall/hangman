@@ -1,4 +1,3 @@
-
 // OBJECT wordLibrary - contols win & lose count, word library
 var wordLibrary = {
     win: 0,
@@ -22,7 +21,9 @@ var wordLibrary = {
         "kanji"
     ],
 
-    createTargetWord: function() {
+    validKeys: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'u', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+
+    createTargetWord: function () {
         //Chooses random word in array
         var randWordNum = Math.floor(Math.random() * wordLibrary.library.length)
 
@@ -41,27 +42,27 @@ var wrongKeysPressed = {
 
     //library of wrongly guessed letters
     library: [],
-    
+
     //function 'prints' the incorrect keys to the screen
 
-            // needs to be a for loup the sycles through letters and prints them
-    print: function() {
+    // needs to be a for loup the sycles through letters and prints them
+    print: function () {
         document.getElementById("letterGuesses").innerHTML = this.library.join('');
     },
 
     //everytime a guess is wrong needs to run functions to check if they lose
-    loseCheck: function() {
+    loseCheck: function () {
 
         // If they still have strikes left remove a strike
         if (this.wrongStrike !== 1) {
-            this.wrongStrike -= 1 
+            this.wrongStrike -= 1
 
         } else {
-        // increase lose count, reset strikes 
+            // increase lose count, reset strikes 
             wordLibrary.lose += 1;
 
             document.getElementById("lose").innerHTML = wordLibrary.lose
-            
+
             board.reset()
         };
 
@@ -79,7 +80,7 @@ var correctKeysPressed = {
         document.getElementById("targetWord").innerHTML = this.library.join('');
     },
 
-    winCheck: function() {
+    winCheck: function () {
         //ran every correct word guess, if all 'empty' spaces are gone player wins
         if (correctKeysPressed.library.includes("_") === false) {
 
@@ -97,8 +98,8 @@ var correctKeysPressed = {
 // OBJECT controls board - creation and resetting
 var board = {
 
-    // needs to be changed so it doesn't ring the commas
-    create: function() {
+
+    create: function () {
         wordLibrary.createTargetWord()
 
         for (i = 0; i < wordLibrary.targetWord.length; i++) {
@@ -111,10 +112,10 @@ var board = {
     },
 
     //resets the board but keeps wins and loses
-    reset: function() {
+    reset: function () {
         //prints lastword
-        document.getElementById("lastWord").innerHTML = ("lastword :" + wordLibrary.targetWord)
-        
+        document.getElementById("lastWord").innerHTML = ("lastword: " + wordLibrary.targetWord)
+
         //pick a new targetword
         wordLibrary.createTargetWord();
 
@@ -142,21 +143,33 @@ board.create()
 document.onkeyup = function (event) {
     //assigns user key to variable userGuess
     var userGuess = event.key;
+
+    // checks to see if its a valid key
+    var validGuess = wordLibrary.validKeys.indexOf(userGuess);
+    if (validGuess === -1) {
+        return false;
+    }
+
+    // else preceed
     var guessIndex = wordLibrary.targetWord.indexOf(userGuess);
 
     if (guessIndex === -1) {
 
         // adds to incorrect guesses
-        wrongKeysPressed.library.push(userGuess);
-        // calls fuction to display on screen
-        wrongKeysPressed.print();
-        // checks if the player loses
-        wrongKeysPressed.loseCheck();
+        if (wrongKeysPressed.library.includes(userGuess) === true) {
+            return false;
+        } else {
+            wrongKeysPressed.library.push(userGuess);
+            // calls fuction to display on screen
+            wrongKeysPressed.print();
+            // checks if the player loses
+            wrongKeysPressed.loseCheck();
+        }
 
     } else {
 
         // locats all matching letters in target word and replaces _ with the letter
-        for (i=0; i < wordLibrary.targetWord.length; i++) {
+        for (i = 0; i < wordLibrary.targetWord.length; i++) {
             if (wordLibrary.targetWord[i] === userGuess) {
                 correctKeysPressed.library[i] = userGuess;
             }
@@ -169,5 +182,5 @@ document.onkeyup = function (event) {
 
     }
 
-    
+
 };
