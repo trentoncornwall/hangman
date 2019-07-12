@@ -123,7 +123,9 @@ var board = {
 
         //checks if new word is the same as last, if so recursive call
         if (lastWord === wordLibrary.targetWord) {
+            console.log("need to make new word lastword: " + lastWord +" newWord :" + wordLibrary.targetWord)
             this.reset();
+            console.log("new new wordl :" +wordLibrary.targetWord)
         }
     
         //resets correct keys pressed
